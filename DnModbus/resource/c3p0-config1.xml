@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+  <!-- This app is massive! -->
+  <named-config name="sqlserver"> 
+  	<property name="user">sa</property>
+  	<property name="password">qQ123456#</property>
+  	<property name="jdbcUrl">jdbc:sqlserver://127.0.0.1; DatabaseName=test</property>
+  	<property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  	
+    <property name="initialPoolSize">10</property>
+    <property name="minPoolSize">5</property>
+    <property name="maxPoolSize">20</property>
+    
+    <property name="acquireIncrement">2</property>
+    <property name="acquireRetryAttempts">30</property>
+    <property name="acquireRetryDelay">1000</property>
+    <property name="autoCommitOnClose">false</property>
+	
+	<property name="maxIdleTime">0</property>
+	
+    <!-- intergalactoApp adopts a different approach to configuring statement caching -->
+    <property name="maxStatements">0</property> 
+    <property name="maxStatementsPerConnection">5</property>
+
+    <!-- he's important, but there's only one of him -->
+    <user-overrides user="master-of-the-universe"> 
+      <property name="acquireIncrement">1</property>
+      <property name="initialPoolSize">1</property>
+      <property name="minPoolSize">1</property>
+      <property name="maxPoolSize">5</property>
+      <property name="maxStatementsPerConnection">50</property>
+    </user-overrides>
+  </named-config>
+</c3p0-config>

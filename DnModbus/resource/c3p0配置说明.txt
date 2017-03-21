@@ -1,0 +1,22 @@
+user
+password
+driverClass
+jdbcUrl
+initialPoolSize
+
+
+minPoolSize			连接池中保留的最小连接数
+
+
+maxPoolSize			连接池中保留的最大连接数
+maxIdleTime
+checkoutTimeout
+acquireIncrement
+acquireRetryAttempts
+acquireRetryDelay
+autoCommitOnClose
+automaticTestTable
+breakAfterAcquireFailure
+idleConnectionTestPeriod
+maxStatements
+maxStatementsPerConnection

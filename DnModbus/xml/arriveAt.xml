@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller id="2" slaveID="2">
+	<!-- 到位检测(基于modbus通讯)-->
+	<name>DaoWei</name>
+	<mode>SimulateAndForwarding</mode>
+	<ctorName>com.xgzn.dgfj.modbus.controller.ArriveAtController</ctorName>
+	<ip>127.0.0.1</ip>
+	<port>5050</port>
+	<registers>
+		<!-- 条码监控:1号打孔线自动扫码1，双面孔板或异常板回流，发送路线1,2(分拣1、2线) -->
+		<register>
+			<address>20</address>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<read>
+				<data type="bjtm">
+					<dataAddress>0</dataAddress>
+					<dataLength>20</dataLength>
+					<dataType>code</dataType>
+				</data>
+			</read>
+			<write>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="bjlx">	
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>2</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>4</address>
+				</data>
+			</write>
+		</register>
+		<!-- 条码监控:2号打孔线自动扫码1，双面孔板或异常板回流，发送路线1,2(分拣1、2线) -->
+		<register>
+			<address>44</address>
+			<dataAddress>24</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>6</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>8</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>10</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:3号打孔线自动扫码1，双面孔板或异常板回流，发送路线1,2(分拣1、2线) -->
+		<register>
+			<address>68</address>
+			<dataAddress>48</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>12</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>14</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>16</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:1号分拣线自动扫码1，根据板件短ID计算路线，发送1,2(1、2号机器人) -->
+		<register>
+			<address>92</address>
+			<dataAddress>72</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>18</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>20</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>22</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:2号分拣线自动扫码1，根据板件短ID计算路线，发送3,4(3、4号机器人) -->
+		<register>
+			<address>116</address>
+			<dataAddress>96</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>24</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>26</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>28</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:1号分拣线自动扫码2，根据板件短ID计算路线，发送2,21(2号机器人，分拣1线NG出口)   -->
+		<register>
+			<address>152</address>
+			<dataAddress>132</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>30</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>32</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>34</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:2号分拣线自动扫码2，根据板件短ID计算路线，发送4,24(4号机器人，分拣2线NG出口)   -->
+		<register>
+			<address>176</address>
+			<dataAddress>156</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>36</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>38</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>40</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:分拣1线出库并线后入人工打包线前扫码确认进哪条人工打包线(1,2对应右,左) -->
+		<register>
+			<address>238</address>
+			<dataAddress>218</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>74</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>76</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>78</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 条码监控:分拣2线出库并线后入人工打包线前扫码确认进哪条人工打包线(1,2对应右,左) -->
+		<register>
+			<address>262</address>
+			<dataAddress>242</dataAddress>
+			<dataLength>20</dataLength>
+			<dataType>code</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>80</address>
+				</data>
+				<data type="bjlx">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>82</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>84</address>
+				</data>
+			</writeData>
+		</register>
+		
+		<!-- 与机器人通讯 (通过板件短位ID查询并发送库位入库)-->
+		<!-- 1号机器人板件到位，从plc获取板件短号，发送库位，接收机器人入库状态 -->
+		<register>
+			<address>122</address>
+			<dataAddress>120</dataAddress>
+			<dataLength>2</dataLength>
+			<dataType>bid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- <data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="rkkw">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data> -->
+			</writeData>
+		</register>
+		<!-- 2号机器人板件到位，从plc获取板件短号，发送库位，接收机器人入库状态 -->
+		<register>
+			<address>128</address>
+			<dataAddress>126</dataAddress>
+			<dataLength>2</dataLength>
+			<dataType>bid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- <data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="rkkw">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data> -->
+			</writeData>
+		</register>
+		<!-- 3号机器人板件到位，从plc获取板件短号，发送库位，接收机器人入库状态 -->
+		<register>
+			<address>182</address>
+			<dataAddress>180</dataAddress>
+			<dataLength>2</dataLength>
+			<dataType>bid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- <data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="rkkw">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data> -->
+			</writeData>
+		</register>
+		<!-- 4号机器人板件到位，从plc获取板件短号，发送库位，接收机器人入库状态 -->
+		<register>
+			<address>188</address>
+			<dataAddress>186</dataAddress>
+			<dataLength>2</dataLength>
+			<dataType>bid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- <data type="bjid">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="rkkw">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>0</address>
+				</data> -->
+			</writeData>
+		</register>
+		
+		<!-- 右侧双层线并线顶升前(板件短位ID(bid)，板件包ID(pid)) 下层-->
+		<register>
+			<address>198</address>
+			<dataAddress>194,196</dataAddress>
+			<dataLength>2,2</dataLength>
+			<dataType>bid,pid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- 并线出分拣 右侧顶升的出库层数-->
+				<data type="ckcs">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>66</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>68</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 右侧双层线并线顶升前(板件短位ID，板件包ID) 上层-->
+		<register>
+			<address>204</address>
+			<dataAddress>200,202</dataAddress>
+			<dataLength>2,2</dataLength>
+			<dataType>bid,pid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- 并线出分拣 右侧顶升的出库层数-->
+				<data type="ckcs">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>66</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>68</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 左侧双层线并线顶升前(板件短位ID，板件包ID) 下层-->
+		<register>
+			<address>210</address>
+			<dataAddress>206,208</dataAddress>
+			<dataLength>2,2</dataLength>
+			<dataType>bid,pid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- 并线出分拣 左侧顶升的出库层数-->
+				<data type="ckcs">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>70</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>72</address>
+				</data>
+			</writeData>
+		</register>
+		<!-- 右侧双层线并线顶升前(板件短位ID，板件包ID) 上层-->
+		<register>
+			<address>216</address>
+			<dataAddress>212,214</dataAddress>
+			<dataLength>2,2</dataLength>
+			<dataType>bid,pid</dataType>
+			<defaultValue>0</defaultValue>
+			<type>RE</type>
+			<writeData>
+				<!-- 并线出分拣 左侧顶升的出库层数-->
+				<data type="ckcs">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>70</address>
+				</data>
+				<data type="did">
+					<ip>127.0.0.1</ip>
+					<port>5050</port>
+					<slaveId>1</slaveId>
+					<address>72</address>
+				</data>
+			</writeData>
+		</register>
+	</registers>
+</controller>
